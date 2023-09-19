@@ -1,0 +1,101 @@
+
+{
+	"stepResponse": [
+		{
+			"step": "Basic Details",
+			"isValid": true
+		},
+		{
+			"step": "Location",
+			"isValid": true
+		},
+		{
+			"step": "Property Details",
+			"isValid": true
+		},
+		{
+			"step": "Property Features",
+			"isValid": false
+		},
+		{
+			"step": "Photos & Videos",
+			"isValid": false
+		},
+		{
+			"step": "Amenities",
+			"isValid": false
+		},
+		{
+			"step": "Property Verification",
+			"isValid": false,
+			"isVerified": false
+		},
+		{
+			"step": "Auction Price",
+			"isValid": false
+		}
+	]
+}
+
+
+ {
+  auctionGroupId: 1379,
+  ApartmentTotalFloor: 12,
+  Bathroom: 3,
+  Bedroom: 1,
+  GuestRoom: 4,
+  LivingRoom: 3,
+  TotalCarParking: 12,
+  furnishingTypeId: 5,
+  id: '28585',
+  landDepth: '',
+  landLength: '',
+  mainTypeId: '2',
+  noOfApartments: '',
+  noOfOffice: '',
+  noOfOpening: 12,
+  noOfPalmTrees: '',
+  noOfWaterWells: '',
+  propertyTypeId: '39',
+  PropertyFloor: '7',
+};
+
+sonar-scanner \
+  -Dsonar.projectKey=real_state \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=sqp_82afa5fb184f870ef04acb852fb5c6adaee35cc8
+
+   const basicDetailsRule = {
+                listingTypeId: 'required',
+                cityId: 'required',
+            };
+            const propertyVerificationRule = {
+                identity: 'required',
+            };
+            const LocationRule = {
+                lattitude: 'required|integer',
+                longitude: 'required|integer',
+            };
+            const propertyDetailRule = {
+                propertyTypeId: 'required|integer',
+            };
+            const propertyFeatureRule = {
+                noOfBedrooms: 'required|integer',
+                noOfBathrooms: 'required|integer',
+                noOfLivingrooms: 'required|integer',
+                noOfGuestrooms: 'required|integer',
+                noOfParkings: 'required|integer',
+                noOfFloors: 'required|integer',
+                floorNumber: 'required|integer',
+            };
+            const propertyFileRule = {
+                filesCount: 'required|integer|min:1',
+            };
+            const amenityStepRule = result.data.skipAmenitiesCheck
+                ? {}
+                : {
+                    title: 'required',
+                    description: 'required',
+                };
+     */
